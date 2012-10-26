@@ -17,6 +17,8 @@ author :
   github : athieriot
   twitter : a_thieriot
   feedburner : github/WavO
+  googleplus: a.thieriot@gmail.com
+  linkedin: athieriot
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -26,7 +28,7 @@ author :
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://athieriot.github.com/blog
+production_url : http://athieriot.github.com
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -55,7 +57,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : http://athieriot.github.com/blog
+  BASE_PATH : false
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]

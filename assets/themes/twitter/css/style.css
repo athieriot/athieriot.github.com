@@ -2,6 +2,13 @@
 html, body {
   background-color: #eee;
 }
+body {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+footer {
+  padding-top: 20px;
+}
 .navbar {
   margin-bottom: 0;
 }
@@ -68,4 +75,53 @@ html, body {
 	border:1px solid #4C964D;
 	color:#FFF;
 }
-	
+
+/* Custom */
+
+.sidebar-nav {
+   padding: 9px 0;
+}
+
+/* Tweak navbar brand link to be super sleek
+-------------------------------------------------- */
+.navbar-fixed-top .brand {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  float: left;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  transition: all .2s linear;
+}
+.navbar-fixed-top .brand:hover {
+  text-decoration: none;
+}
+
+/* Zocial Overrides */
+/* line 248, ../_sass/_base.scss */
+.navbar a.zocial {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* line 254, ../_sass/_base.scss */
+.zocial.googleplus:focus,
+.zocial.googleplus:hover {
+  color: #e01d30 !important;
+}
+
+/* line 259, ../_sass/_base.scss */
+.zocial.twitter:focus,
+.zocial.twitter:hover {
+  color: #46c0fb !important;
+}
+
+/* line 265, ../_sass/_base.scss */
+.zocial.linkedin:focus,
+.zocial.linkedin:hover {
+  color: #50a1cb !important;
+}

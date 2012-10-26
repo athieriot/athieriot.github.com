@@ -2,20 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
+    <title>
+      {% if page.title %}
+        {{ page.title }} - 
+      {% endif %}
+      {{ site.title }}
+    </title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="author" content="{{ site.author.name }}">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <!-- Le styles -->
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="{{ ASSET_PATH }}/css-social-buttons/css/zocial.stripped.css" />
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ ASSET_PATH }}/css/print.css" rel="stylesheet" media="print"> 
 
-    <!-- Le fav and touch icons -->
+    <script src="{{ ASSET_PATH }}/js/jquery.min.js"></script>
+    <script src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ ASSET_PATH }}/js/highcharts.js"></script>
+    <script src="{{ ASSET_PATH }}/js/jquery.scrollTo-1.4.2-min.js"></script>
+    <script src="{{ ASSET_PATH }}/js/resume.js"></script>
+
+    <link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css">
+    <script src="http://coderwall.com/javascripts/jquery.coderwall.js"></script>
+
+    <!-- fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -25,35 +41,464 @@
   </head>
 
   <body>
-
-    <div class="navbar">
+    <div id="header" class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
           <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
-          <ul class="nav">
-            {% assign pages_list = site.pages %}
-            {% assign group = 'navigation' %}
-            {% include JB/pages_list %}
-          </ul>
+
+          <div class="nav-collapse">
+            <ul id="spybar" class="nav">
+              <li><a href="#about">About</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#certification">Certification</a></li>
+              <li><a href="#referees">Referees</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#interests">Interests</a></li>
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              {% if site.author.github %}
+                <li>
+                  <a href="https://www.github.com/{{ site.author.github }}" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              {% endif %}
+              {% if site.author.googleplus %}
+                <li>
+                  <a href="https://profiles.google.com/{{ site.author.google }}" class="zocial googleplus icon" target="_blank">
+                    <span class="hidden-desktop">Google+</a>
+                  </a>
+                </li>
+              {% endif %}    
+              {% if site.author.twitter %}
+                <li>
+                  <a href="http://www.twitter.com/{{ site.author.twitter }}" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+              {% endif %}                          
+              {% if site.author.facebook %}
+                <li>
+                  <a href="http://www.facebook.com/{{ site.author.facebook }}" class="zocial facebook icon" target="_blank">
+                    <span class="hidden-desktop">Facebook</a>
+                  </a>
+                </li>
+              {% endif %}           
+              {% if site.author.linkedin %}
+                <li>
+                  <a href="http://www.linkedin.com/in/{{ site.author.linkedin }}" class="zocial linkedin icon" target="_blank">
+                    <span class="hidden-desktop">LinkedIn</a>
+                  </a>
+                </li>
+              {% endif %}                    
+              {% if site.author.feedburner %}
+                <li>
+                  <a href="http://feeds.feedburner.com/{{ site.author.feedburner }}" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <a href="http://athieriot.github.com"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
-      <div class="content">
-        {{ content }}
+    <div class="container-fluid">
+       <div class="content">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+            <a href="#" class="thumbnail pull-right" style="margin-right: 10px; width:50px; height: 50px">
+               <img src="http://www.gravatar.com/avatar/0d40e29bf1ef6d51c9b8e6e7a0edd9f5.png" alt="">
+            </a>
+              <li>
+                <address>
+                   <strong>Aurélien Thieriot</strong> <br>
+                   33 Avenue Laplace <br>
+                   94110 Arcueil, France <br>
+                   <i class="icon-signal"></i> +33618941838 <br>
+                   <i class="icon-envelope"></i> <a href="mailto:a.thieriot@gmail.com">a.thieriot@gmail.com</a> <br>
+                   <i class="icon-flag"></i>Nationality: French <br>
+                   Driving licence<br>
+                   Age: 29 <br>
+                   Date of birth: 18/12/1982
+                </address>
+              </li>
+              <li id="nav-skills" class="nav-header">Skills</li>
+                <div id="skills">
+                </div>
+              <li id="nav-timeline" class="nav-header">Timeline</li>
+                <div id="timeline">
+                </div>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+           <div id="about" class="hero-unit well">
+            <h2>Intermediate Java / Web Developer</h2>
+            <p><h4><i>Confirmed Clean Coder, Optimistic Toolmaker, e-mail novelist, Chameleon Facilitator, Functional languages Explorer and hidden guitar player.</i></h4></p>
+            <p><strong>Objective:</strong> to learn a lot, to share my knowledge, to lead projects and achieve their goals.
+            And since I achieved this crazy idea to go and live in Cardiff, I keep trying to resolve new challenges!</p>
+            <br>
+            <p>I started my career as a junior technician and a hotline agent, which has allowed me to understand the problems linked to production. 
+            My first real coding experience was quite difficult. However, thanks to a coached and a serious apprenticeship I have discovered modern practices and methods of software development like Agile Methods which allow teams to build effective processes and applications of quality.
+            </p>
+            <p>
+            More than an engineer, I seek harmony in team decisions and I choose to be a problem solver in case of conflicts.
+            </p>
+            <p>
+            I currently try to keep learning, improving my skills and sharing what I know on a day to day basis. I like to discover new tools and methods that help me be a better developer not only for myself but also for my company.</p>
+          </div>
+          <div class="row-fluid" style="font-size:1.1em">
+            <div id="experience" class="span11">
+              <span>
+                 <h2 style="text-align: left;">Experience</h2>
+                 <hr style="margin-top: 0px;">
+              </span>
+
+                <!-- Box UK -->
+                <div style="padding-left: 30px;">
+                  <h4 id="box">Web developer at <a href="http://www.boxuk.com/">Box UK</a></h4>
+                  <h5>51-200 employees; Internet industry</h5>
+                  <h5>September 2012 - Present, Cardiff, Wales, United Kingdom</h5>
+                </div>
+                <div style="padding-left: 60px">
+                    <p>
+                        <p>
+                            <h6>Coming Soon</h6>
+                        </p>
+                    </p>
+                </div>
+
+                <!-- Evergig -->
+                <div style="padding-left: 30px;">
+                    <h4 id="evergig">Lead Developer at <a href="http://evergig.com/">Evergig</a></h4>
+                    <h5>1-10 employees; Media and entertainment company</h5>
+                    <h5>April 2012 - May 2012 (2 months), Paris, France</h5>
+                </div>
+                <div style="padding-left: 60px">
+                    <p>
+                        <p>
+                            <h6>Settings up the technical architecture of the site based on Node.js and using:</h6>
+
+                            <ul>
+                                <li>express.js</li>
+                                <li>passeport.js, for authentication</li>
+                                <li>cradle, for CouchDB database access</li>
+                            </ul>
+                        </p>
+
+                        <h6>Behind the tech:</h6>
+                        <p>
+
+                            <ul>
+                                <li>3 to 4 people team.</li>
+                                <li>First "Startup" experience.</li>
+                                <li>Enrichment on setting up all needed layers to build a complete web application. From the first line of code to production deployment.</li>
+                                <li>Discovering integration test tools (casperjs, frisbi).</li>
+                            </ul>
+                        </p>
+                    </p>
+                </div>
+
+              <!-- VIDAL -->
+              <div style="padding-left: 30px;">
+                   <h4 id="vidal">Java / Web Developer, Scrum Master at <a href="http://vidalubmmedica.com/">VIDAL</a></h4>
+                   <h5>50-200 employees; Information Technology and Health Services industry</h5>
+                   <h5>May 2010 - Present (2 years), Issy Les Moulineaux, Paris region, France</h5>
+              </div>
+              <div style="padding-left: 60px">
+                 <p>
+                   <p>
+                     <h6>Integration in the SCRUM organised front end team at VIDAL:</h6>
+
+                      <ul>
+                         <li>Worked in collaboration with the Product Owner through a Project Backlog</li>
+                         <li>Took part in the continual improvement process</li>
+                         <li>Learnt several good development practices (from eXtreme Programming)</li>
+                         <ul>
+                            <li>Test Driven Development (JUnit, JS-Test-Driver)</li>
+                            <li>Continuous Integration (Teamcity, Selenium)</li>
+                            <li>Pair Programming</li>
+                            <li>Peer reviews</li>
+                         </ul>
+                      </ul>
+                   </p>
+
+                   <h6>Technically speaking:</h6>
+
+                   <p>
+                      <ul>
+                         <li>Complete freedom in our development environment. My favorite is Linux and a good shell (zsh) with IntelliJ and vi</li>
+                         <li>In charge of the development and maintenance of the following software:</li>
+                         <ul>
+                            <li>The business software layer (Maven, Spring, Hibernate, Lucene, ...)</li>
+                            <li>The Web applications:</li>
+                              <ul>
+                                 <li>Server side: Java API REST (Spring MVC, Jersey)</li>
+                                 <li>Client side: Javascript and asynchronous requests</li>
+                              </ul>
+                            <li>SOAP Webservices (xfire, aegis, dozer)</li>
+                         </ul>
+                      </ul>
+                   </p>
+
+                   <h6>I also completed the following missions:</h6>
+
+                   <p>
+                      <ul>
+                         <li>Transition from the SVN version control system to a more modern one, Git, for which I became the team's expert</li>
+                         <li>Developed a Web application for internal use (Play ! Framework) in order to check our API</li>
+                         <li>Improved the Continuous Integration server by adding a Continuous Deployment feature</li>
+                         <li>Wrote automated integration tests on our products installers (Vagrant)</li>
+                      </ul>
+                   </p>
+
+                   <h6>At the end of 2010, I was given the position of SCRUM Master and I widely improved my Agile Methods skills:</h6>
+
+                   <p>
+                      <ul>
+                         <li>Follow useful values (Burndown Chart, Cumulative Flow Diagram)</li>
+                         <li>Conduct Sprint Demos and retrospectives</li>
+                      </ul>
+                   </p>
+
+                   <h6>Furthermore, I maintain a permanent technological scouting by:</h6>
+
+                   <p>
+                      <ul>
+                         <li>Contributing in Open source projects</li>
+                         <li>Going to several User Groups (in Paris)</li>
+                         <li>Going to international conferences (Devoxx, JSConf)</li>
+                         <li>Helping to organise events like ParisJS</li>
+                         <li>Doing Randori</li>
+                         <li>Working on pet projects to discover and improve my skills in Play ! 2.0, Scala, Node.js and so on</li>
+                      </ul>
+                   </p>
+                 </p>
+               </div>
+
+               <!-- Safig -->
+               <div style="padding-left: 30px;">
+                   <h4 id="safig2">Junior Software Developer at <a href="http://www.safig.fr/">Safig Dataway</a></h4>
+                   <h5>500-1000 employees; Banking industry</h5>
+                   <h5>June 2005 - May 2010 (5 years)</h5>
+               </div>
+               <div style="padding-left: 60px;">
+                 <p>
+                   <p>
+                     <h6>From January 2009 to May 2010:</h6>
+
+                     <p>
+                       <ul>
+                          <li>Started creating a Web portal to aggregate every service of the company based on SpringSource technologies</li>
+                          <li>Started writing API for our services</li>
+                          <li>Used a software factory with tools like Trac, Subversion, Hudson, Sonar and kept a good code coverage by writing unit tests of the application</li>
+                       </ul>
+                     </p>
+
+                     <h6>From March 2008 to December 2008:</h6>
+
+                     <p>
+                       <ul>
+                          <li>Built a Web application for the European SEPA project with the following features:</li>
+                          <ul>
+                             <li>Convertion of French bank codes (RIB) into BIC and IBAN</li>
+                             <li>Detection of the customer's bank to use a design (or an authentication system if needed) personalised by said bank (Spring&nbsp;Security)</li>
+                             <li>Allowing customers to send plain text files to an asynchronous batch system (Spring batch)</li>
+                             <li>Discovered Open Source tools and frameworks for the Java platform (Tomcat, Eclipse, Maven, Spring MVC, WebFlow, Hibernate)</li>
+                             <li>Did product maintenance</li>
+                          </ul>
+                       </ul>
+                     </p>
+
+                     <h6>From June 2005 and March 2008:</h6>
+
+                     <p>
+                       <ul>
+                          <li>Translated the main product (French postal standardisation) from Cobol to Java with the help of the IsCobol compiler</li>
+                          <li>Built a Webservice interface for the product, consumed by IBM Websphere (Axis 1)</li>
+                          <li>Wrote several Visual Basic for Application (Excel) macros to display statistic charts and standardisation reports</li>
+                          <li>Adapted all the SunOS scripts for them to work on the new Cygwin based server</li>
+                          <li>Bootstrapped the replacement of the Microfocus compiler by CobolIT to ensure C language integration and Unix compatibility. The&nbsp;first reason for this choice was the progressive abandon of the IBM mainframes by our customers</li>
+                          <li>Did the maintenance of the Cobol products (CA-Realia II, Microfocus, SQL servers, Oracle, DB2)</li>
+                       </ul>
+                     </p>
+                   </p>
+                 </p>
+               </div>
+
+               <!-- DPV -->
+               <div style="padding-left: 30px;">
+                   <h4 id="safig1">Data / Computer Technician at <a href="http://www.safig.fr/">Safig Dataway</a></h4>
+                   <h5>500-1000 employees; Banking industry</h5>
+                   <h5>April 2004 - June 2005 (1 year 3 months), Paris, France</h5>
+               </div>
+               <div style="padding-left: 60px;">
+                 <p>
+                   <p>
+                     <ul>
+                       <li>Applying standardisation treatments on files and databases of postal addresses in compliance with state rules (using Shell commands and DBase systems)</li>
+                       <li>Fixing office computers (mostly on Windows Operating System)</li>
+                     </ul>
+                   </p>
+                 </p>
+               </div>
+
+               <!-- DESA -->
+               <div style="padding-left: 30px;">
+                 <h4 id="desa">Junior Software Developer Modifier at <a href="http://www.desa.fr/">DESA Logiciel</a></h4>
+                 <h5>April 2003 - October 2003 (7 months), Versailles, France</h5>
+               </div>
+               <div style="padding-left: 60px;">
+                 <p>
+                   <p>
+                     <ul>
+                       <li>Development of the user interface evolution of our main product (Visual C++ v7)</li>
+                       <li>Technical hotline</li>
+                     </ul>
+                   </p>
+                 </p>
+                </div>
+              </div>
+              <div id="education">
+                <p>
+                  <span>
+                     <h2 style="text-align: left;">Education</h2>
+                     <hr style="margin-top: 0px;">
+                  </span>
+                  <div style="padding-left: 30px;"> 
+                    <h4 id="iut">IUT (~College of Advanced Technology) <a href="http://www.iut-rcc.fr/">Leonard de Vinci</a></h4>
+                    <h5>DUT (two-year diploma from a university institute of technology), Information Technology</h5>
+                    <h5>2000 ¿ 2002 (2 years), Reims, France</h5>
+                 </div>
+                </p>
+             </div>
+          </div><!--/row-->
+          <div class="row-fluid" style="font-size:1.1em">
+            <div id="certification" class="span11">
+               <span>
+                  <h2 style="text-align: left;">Certification</h2>
+                  <hr style="margin-top: 0px;">
+               </span>
+               <div style="padding-left: 30px;"> 
+                 <h4>Scrum Master</h4>
+                 <p>Scrum Alliance; November 2011 to November 2013</p>
+               </div>
+            </div><!--/span-->
+          </div><!--/row-->
+          <div class="row-fluid" style="font-size:1.1em">
+            <div id="referees" class="span11">
+              <span>
+                 <h2 style="text-align: left;">Referees</h2>
+                 <hr style="margin-top: 0px;">
+              </span>
+              <div style="padding-left: 30px;"> 
+                 <p>
+                 "Aurélien is a very good Java and Web developper. He¿s passionate about OpenSource and I learned a lot about Linux tools or tricks thanks to him. He is eager to always learn and try new languages (like Scala) or Agile practices to enhance our workflow. 
+                 He is also a great coworker, a wonderful teamplayer and have high communication skills ! 
+                 I'm enjoying a lot working with him, and I hope it will last." <strong><i>8 octobre 2011</i></strong>
+                 </p>
+                 <h4><i><a href="http://www.linkedin.com/profile/view?id=3843964&noCreateProposal=true&goback=%2Enpe_*1_*1_*1_*1_*1_*1%2Enpe_*1_fr*4FR_*1_*1_*1_*1%2Enpe_*1_en*4US_*1_*1_*1_*1">Gregory Paul</a>, Java & Web engineer, Vidal</i></h4>
+                 <h5>Has worked with me at VIDAL</h5>
+                 <br>
+                 <p>
+                 "I met Aurélien while I was a consultant for Safig Dataway, delivering a project on a very short timeframe, using technologies that were very effective but unknown to the company at that time. Aurélien, who was a Safig employee, picked up the pace very quickly and was able to embrace the project very effectively. Indeed, he has since gained competence as a software developer and we often cross paths in local Java User Groups. I would definitely recommend working with Aurélien if you ever get the opportunity." <strong><i>11 octobre 2011</i></strong>
+                 </p>
+                 <h4><i><a href="http://www.linkedin.com/profile/view?id=2952029&noCreateProposal=true&goback=%2Enpe_*1_*1_*1_*1_*1_*1%2Enpe_*1_fr*4FR_*1_*1_*1_*1%2Enpe_*1_en*4US_*1_*1_*1_*1">Eric Bottard</a>, Software Architect, eBusiness Information</i></h4>
+                 <h5>Has been advisor for Safig Dataway</h5><br>
+               </div>
+            </div>
+          </div>
+          <div class="row-fluid" style="font-size:1.1em">
+             <div id="portfolio" class="span11">
+
+              <span>
+                 <h2 style="text-align: left;">Portfolio</h2>
+                 <hr style="margin-top: 0px;">
+              </span>
+              <div style="padding-left: 30px;">
+                 <dl>
+                    <dt>
+                      <img src="./assets/img/linkedin-fav.ico"/> <a href="http://www.linkedin.com/profile/view?locale=en_US&id=36484197&trk=tab_pro">linkedIn/athieriot</a>
+                    </dt><br>
+                    <dt><i class="icon-heart"></i> Contribution on the Infinitest project: <a href="https://github.com/infinitest/infinitest">https://github.com/infinitest/infinitest</a></dt>
+                    <dd>
+                      Infinitest is a Continuous Test Runner for Java.<br>
+                      I made some fixes for the IntelliJ plugin.  
+                      </dd><br>
+                    <dt><i class="icon-comment"></i> Presentation of 'commander.js' at <a href="http://parisjs.org/">Paris Node Meetup</a> 2, La cantine, Paris</dt>
+                    <dd>
+                    Slides : <a href="http://athieriot.github.com/wing-commander-js/">http://athieriot.github.com/wing-commander-js/</a><br>
+                    Live (18:00) : <a href="http://lacantine.ubicast.eu/videos/nodejs-160412-22/">http://lacantine.ubicast.eu/videos/nodejs-160412-22/</a>
+                    </dd><br>
+                    <dt><i class="icon-star"></i> Yammer adapter for Hubot: <a href="https://github.com/athieriot/hubot-yammer">https://github.com/athieriot/hubot-yammer</a></dt>
+                    <dd>
+                      <a href="https://www.yammer.com">Yammer</a> is a social network for companies.<br>
+                      <a href="http://hubot.github.com/">Hubot</a> is a customizable, kegerator-powered life embetterment robot written in Coffescript on Node.js.<br>
+                      I made an adapter that allows Yammer users to talk to Hubot. 
+                    </dd><br>
+                    <dt><i class="icon-star"></i> Rsstodolist Firefox Addon: <a href="https://addons.mozilla.org/fr/firefox/addon/rss-todolist-addon"> https://addons.mozilla.org/fr/firefox/addon/rss-todolist-addon</a> </dt>
+                    <dt><i class="icon-star"></i> Rsstodolist Hubot script: <a href="https://github.com/github/hubot-scripts/blob/master/src/scripts/rsstodolist.coffee">https://github.com/github/hubot-scripts/blob/master/src/scripts/rsstodolist.coffee</a></dt>
+                    <dd>These addons are interfaces for the <a href="http://rsstodolist.appspot.com">Rsstodolist</a> application.<br>
+                    It allows you, by a single click, to add the URL of the webpage you're viewing to an RSS feed.
+                    Typical example is marking web pages to read later.
+                    Also, if you know the feed name of a friend of yours, you may also "push" links to it's RSS feed. That's another cool use case.</dd><br>
+                    <dt><i class="icon-star"></i> Taliesin <a href="https://github.com/athieriot/taliesin">https://github.com/athieriot/taliesin</a></dt>
+                    <dd>
+                      Taliesin is a simple command line tool to help launching builds on Continuous Integration systems.<br>
+                    </dd><br>
+                    <dt><i class="icon-book"></i> Technical blog: <a href="http://experience.countyourcouzin.fr/dev">http://experience.countyourcouzin.fr/dev</a></dt>
+                    <dd>Not as updated as I want it to be.</dd><br>
+                 </dl>
+                 <section class="coderwall" data-coderwall-username="athieriot" data-coderwall-orientation="horizontal" style="margin-bottom: 20px;"></section>
+              </div>
+            </div>
+          </div>
+          <div class="row-fluid" style="font-size:1.1em">
+            <div id="interests" class="span11">
+               <span>
+                  <h2 style="text-align: left;">Interests</h2>
+                  <hr style="margin-top: 0px;">
+               </span>
+               <br>
+               <div id="interests-box" style="line-height:2em; padding-left: 30px;">
+                  <span style="font-size: 3em;"><span style="color: #800517">Reading</span> <span style="color: silver;">Uchronia</span></span> /
+                 <span style="font-size: 1em;"><a href="http://experience.countyourcouzin.fr/">Writing</a></span> /
+                 <span style="font-size: 2em;"><a href="http://www.flickr.com/photos/37114118@N07/">Taking pictures</a></span> / 
+                 <span style="font-size: 2em;"><span style="color: silver;">Playing</span> <span style="color: #800517">guitar</span></span> /
+                 <span style="font-size: 3em;"><span style="color: #800517">Coding</span> <span style="color: silver;">for fun</span></span> /
+                 <span style="font-size: 3em;"><span style="color: #800517">Travelling</span> <span style="color: silver;">everywhere</span></span> /
+                 <span style="font-size: 2em;"><span style="color: silver;">Watching Korean</span> <span style="color: #800517">movies</span></span> / 
+                 <span style="font-size: 3em;"><span style="color: silver;">British</span> <span style="color: #800517">TV shows</span></span> /
+                 <span style="font-size: 4em;"><span style="color: silver;">Listening to indie pop</span> <span style="color: #800517">music</span></span> 
+               </div>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
       </div>
 
-      <footer>
+      <footer id="footer">
         <p>&copy; {{ site.author.name }} 2012 
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+          <span class="pull-right">Powered by Twitter Bootstrap and Github Pages - version 1.5</span>
         </p>
       </footer>
-
+    
     </div> <!-- /container -->
-
     {% include JB/analytics %}
   </body>
 </html>
