@@ -11,6 +11,7 @@ pygments: true
 #
 title : Aurélien Thieriot
 tagline: Writing about Code and feelings
+version: 1.6
 author :
   name : Aurélien Thieriot
   email : a.thieriot@gmail.com
