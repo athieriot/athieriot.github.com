@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Advent+Pro);
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
 /* Override some defaults */
 html, body {
   background-color: #eee;
@@ -6,11 +8,20 @@ body {
   padding-top: 40px;
   padding-bottom: 20px;
 }
+#header, footer {
+  color: #bbb;
+  text-shadow: 1px 1px 1px #000;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 14px;
+}
 footer {
   padding-top: 20px;
 }
 .navbar {
   margin-bottom: 0;
+}
+.navbar div.navbar-inner a.brand {
+  padding: 10px 20px;
 }
 .container > footer {
   margin-top: 20px;
