@@ -28,8 +28,8 @@
     <script src="{{ ASSET_PATH }}/js/jquery.scrollTo-1.4.2-min.js"></script>
     <script src="{{ ASSET_PATH }}/js/resume.js"></script>
 
-    <link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css">
     <script src="http://coderwall.com/javascripts/jquery.coderwall.js"></script>
+    <link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css">
 
     <!-- fav and touch icons -->
   <!-- Update these with your own images
@@ -40,7 +40,7 @@
   -->
   </head>
 
-  <body>
+  <body data-spy="scroll">
     <div id="header" class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -50,7 +50,6 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>      
-
           <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
 
           <div class="nav-collapse">
@@ -113,7 +112,7 @@
       </div>
     </div>
 
-    <a href="http://athieriot.github.com"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/athieriot/athieriot.github.com"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
     <div class="container-fluid">
        <div class="content">
@@ -432,9 +431,6 @@
               </span>
               <div style="padding-left: 30px;">
                  <dl>
-                    <dt>
-                      <img src="./assets/img/linkedin-fav.ico"/> <a href="http://www.linkedin.com/profile/view?locale=en_US&id=36484197&trk=tab_pro">linkedIn/athieriot</a>
-                    </dt><br>
                     <dt><i class="icon-heart"></i> Contribution on the Infinitest project: <a href="https://github.com/infinitest/infinitest">https://github.com/infinitest/infinitest</a></dt>
                     <dd>
                       Infinitest is a Continuous Test Runner for Java.<br>
