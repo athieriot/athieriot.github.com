@@ -71,13 +71,6 @@
                   </a>
                 </li>
               {% endif %}
-              {% if site.author.googleplus %}
-                <li>
-                  <a href="https://profiles.google.com/{{ site.author.google }}" class="zocial googleplus icon" target="_blank">
-                    <span class="hidden-desktop">Google+</a>
-                  </a>
-                </li>
-              {% endif %}    
               {% if site.author.twitter %}
                 <li>
                   <a href="http://www.twitter.com/{{ site.author.twitter }}" class="zocial twitter icon" target="_blank">
@@ -85,13 +78,13 @@
                   </a>
                 </li>
               {% endif %}                          
-              {% if site.author.facebook %}
+              {% if site.author.pinterest %}
                 <li>
-                  <a href="http://www.facebook.com/{{ site.author.facebook }}" class="zocial facebook icon" target="_blank">
-                    <span class="hidden-desktop">Facebook</a>
+                  <a href="http://pinterest.com/{{ site.author.pinterest }}" class="zocial pinterest icon" target="_blank">
+                    <span class="hidden-desktop">Pinterest</a>
                   </a>
                 </li>
-              {% endif %}           
+              {% endif %}    
               {% if site.author.linkedin %}
                 <li>
                   <a href="http://www.linkedin.com/in/{{ site.author.linkedin }}" class="zocial linkedin icon" target="_blank">
@@ -99,6 +92,20 @@
                   </a>
                 </li>
               {% endif %}                    
+              {% if site.author.viadeo %}
+                <li>
+                  <a href="http://gb.viadeo.com/fr/profile/{{ site.author.viadeo }}" class="zocial viadeo icon" target="_blank">
+                    <span class="hidden-desktop">Viadeo</a>
+                  </a>
+                </li>
+              {% endif %}
+              {% if site.author.googleplus %}
+                <li>
+                  <a href="https://profiles.google.com/{{ site.author.google }}" class="zocial googleplus icon" target="_blank">
+                    <span class="hidden-desktop">Google+</a>
+                  </a>
+                </li>
+              {% endif %}    
               {% if site.author.feedburner %}
                 <li>
                   <a href="http://feeds.feedburner.com/{{ site.author.feedburner }}" class="zocial rss icon" target="_blank">
@@ -112,8 +119,17 @@
       </div>
     </div>
 
-    <a href="https://github.com/athieriot/athieriot.github.com"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    <a href="{{ site.sources }}"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
+<ul class="jobs">
+{% for job in site.jobs limit: 5 %}
+  <div class="job_info">
+    <li>
+            <a href="{{ job.title }}">{{ post.title }}</a>
+    </li>
+    </div>
+  {% endfor %}
+</ul>
     <div class="container-fluid">
        <div class="content">
       <div class="row-fluid">
@@ -125,11 +141,13 @@
             </a>
               <li>
                 <address>
-                   <strong>Aurélien Thieriot</strong> <br>
-                   33 Avenue Laplace <br>
-                   94110 Arcueil, France <br>
-                   <i class="icon-signal"></i> +33618941838 <br>
-                   <i class="icon-envelope"></i> <a href="mailto:a.thieriot@gmail.com">a.thieriot@gmail.com</a> <br>
+                   <strong>{{ site.author.name }}</strong> <br>
+                   114 Jim Driscoll Way<br>
+                   Sorrento House, The Piazza<br>
+                   Cardiff, CF11 7JR<br>
+                   United Kingdom<br>
+                   <i class="icon-signal"></i>{{ site.author.phone }} <br>
+                   <i class="icon-envelope"></i> <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a> <br>
                    <i class="icon-flag"></i>Nationality: French <br>
                    Driving licence<br>
                    Age: 29 <br>

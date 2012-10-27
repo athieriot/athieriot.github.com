@@ -10,16 +10,20 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : Aurélien Thieriot
-tagline: Writing about Code and feelings
-version: 1.6
+tagline : Writing about Code and feelings
+version : 1.6
+sources : https://github.com/athieriot/athieriot.github.com
 author :
   name : Aurélien Thieriot
+  phone : +447446950569
   email : a.thieriot@gmail.com
   github : athieriot
   twitter : a_thieriot
   feedburner : github/WavO
-  googleplus: a.thieriot@gmail.com
-  linkedin: athieriot
+  googleplus : a.thieriot@gmail.com
+  linkedin : athieriot
+  viadeo : aurelien.thieriot1
+  pinterest : athieriot
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -127,3 +131,4 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
+  jekyll_models : [Jobs]
