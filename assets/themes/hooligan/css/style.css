@@ -408,6 +408,10 @@ div.sidebar section img.icon {
 
 /* Custom */
 
+.zocial.icon {
+   margin-top: -5px;
+}
+
 .sidebar-nav {
    padding: 9px 0;
 }

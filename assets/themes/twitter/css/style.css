@@ -118,6 +118,10 @@ footer {
   padding-right: 0 !important;
 }
 
+.zocial.icon {
+   margin-top: -5px;
+}
+
 .zocial.googleplus:focus,
 .zocial.googleplus:hover {
   color: #e01d30 !important;
