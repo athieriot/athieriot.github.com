@@ -65,21 +65,21 @@
             </ul>
             <ul class="nav pull-right social visible-desktop">
               <li class="divider-vertical"></li>
-<li class="dropdown">
- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-   Last blog posts
-   <b class="caret"></b>
- </a>
- <ul class="dropdown-menu posts">
-{% for post in site.posts limit: 5 %}
-  <div class="post_info">
-    <li>
-    <a href="{{ post.url }}">{{ post.title }} ({{ post.date | date:"%Y-%m-%d" }})</a>
-    </li>
-  </div>
-  {% endfor %}
- </ul>
-</li>
+               <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Latest blog posts
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu posts">
+               {% for post in site.posts limit: 5 %}
+                 <div class="post_info">
+                   <li>
+                   <a href="{{ post.url }}">{{ post.title }} ({{ post.date | date:"%Y-%m-%d" }})</a>
+                   </li>
+                 </div>
+                 {% endfor %}
+                </ul>
+               </li>
               <li class="divider-vertical"></li>
               {% if site.author.github %}
                 <li>
@@ -408,7 +408,7 @@
                   <div style="padding-left: 30px;"> 
                     <h4 id="iut">IUT (~College of Advanced Technology) <a href="http://www.iut-rcc.fr/">Leonard de Vinci</a></h4>
                     <h5>DUT (two-year diploma from a university institute of technology), Information Technology</h5>
-                    <h5>2000 ¿ 2002 (2 years), Reims, France</h5>
+                    <h5>2000 - 2002 (2 years), Reims, France</h5>
                  </div>
                 </p>
              </div>
