@@ -11,7 +11,7 @@ pygments: true
 #
 title : Aurélien Thieriot
 tagline : Writing about Code and feelings
-version : 1.6
+version : 1.7
 sources : https://github.com/athieriot/athieriot.github.com
 author :
   name : Aurélien Thieriot
