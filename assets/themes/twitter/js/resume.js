@@ -138,7 +138,7 @@
        },
        series: [{
                name: 'Box UK',
-               data: [0.5],
+               data: [1],
                events: {
                    click: function(event) {
                        $.scrollTo('#box', 300, {offset: -40})
