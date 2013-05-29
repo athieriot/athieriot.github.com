@@ -63,7 +63,7 @@
           {name: 'Scala',        data: [4]}, 
           {name: 'Java',         data: [5]},
           {name: 'Javascript',   data: [6]}, 
-          {name: 'Git',          data: [5]}, 
+          {name: 'Git',          data: [6]}, 
           {name: 'Linux',        data: [5]}, 
           {name: 'Tooling',      data: [5]}, 
           {name: 'Symfony2',     data: [3]}, 
