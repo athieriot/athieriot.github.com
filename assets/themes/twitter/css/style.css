@@ -9,6 +9,7 @@ body {
   padding-bottom: 20px;
 }
 .paper {
+  background: #fcfcfc url("http://gun.io/static/assets/css/../img/lightpaperfibers.jpg") repeat fixed;
 }
 #header, footer {
   color: #bbb;
