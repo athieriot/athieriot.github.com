@@ -137,6 +137,14 @@
           }
        },
        series: [{
+               name: 'Scalaris',
+               data: [1],
+               events: {
+                   click: function(event) {
+                       $.scrollTo('#scalaris', 300, {offset: -40})
+                   }
+               }
+       },{
                name: 'Box UK',
                data: [1],
                events: {
